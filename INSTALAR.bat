@@ -7,17 +7,25 @@ echo   Instalando Jarvis (solo la primera vez)
 echo ============================================
 echo.
 
-where py >nul 2>nul
-if %errorlevel%==0 (set "PY=py -3") else (set "PY=python")
+set "PY312=%LOCALAPPDATA%\Programs\Python\Python312\python.exe"
+if exist "%PY312%" (set "PY="%PY312%"" & goto tengo_python)
+py -3.12 --version >nul 2>nul
+if not errorlevel 1 (set "PY=py -3.12" & goto tengo_python)
 
-%PY% --version >nul 2>nul
-if errorlevel 1 (
-  echo No encontre Python.
-  echo Instala Python 3.12 desde https://www.python.org/downloads/
-  echo y marca la casilla "Add Python to PATH" al instalar.
-  pause
-  exit /b 1
-)
+echo No encontre Python 3.12. Lo instalo solo, espera...
+echo (si aparece una ventana pidiendo permiso, apreta "Si")
+winget install -e --id Python.Python.3.12 --scope user --accept-package-agreements --accept-source-agreements
+if exist "%PY312%" (set "PY="%PY312%"" & goto tengo_python)
+
+echo.
+echo No pude instalar Python solo.
+echo Abri la Microsoft Store, busca "Python 3.12", instalalo
+echo y despues volve a abrir INSTALAR.bat
+pause
+exit /b 1
+
+:tengo_python
+echo Python encontrado.
 
 if not exist .venv (
   echo Creando entorno...

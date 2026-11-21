@@ -4,11 +4,11 @@
 
 INSTALACIÓN (una sola vez)
 ---------------------------------------------------------------
-1. Instalá Python 3.12 desde https://www.python.org/downloads/
-   IMPORTANTE: en el instalador marcá la casilla "Add Python to PATH".
-2. Descomprimí esta carpeta donde quieras (por ejemplo en Documentos).
-3. Hacé doble clic en INSTALAR.bat y esperá a que termine.
-4. Se abre el archivo .env en el Bloc de notas: pegá tu clave de la IA
+1. Descomprimí esta carpeta donde quieras (por ejemplo en Documentos).
+2. Hacé doble clic en INSTALAR.bat y esperá a que termine.
+   Si no tenés Python, lo instala solo (si Windows pide permiso,
+   apretá "Sí"). Puede tardar unos minutos.
+3. Se abre el archivo .env en el Bloc de notas: pegá tu clave de la IA
    después de ANTHROPIC_API_KEY=  y guardá.
    (La clave se saca en https://platform.claude.com/ -> API Keys.
     Sin clave Jarvis igual hace los comandos, pero no charla.)
