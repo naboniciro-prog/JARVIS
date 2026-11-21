@@ -1,0 +1,44 @@
+{
+  "nombre": "Jarvis",
+  "como_llamarte": "señor",
+  "idioma_reconocimiento": "es-AR",
+  "voz": "es-AR-TomasNeural",
+  "velocidad_voz": "+5%",
+  "volumen_voz": "+0%",
+  "microfono": "",
+  "parlante": "",
+  "activar_con_palabra": true,
+  "sensibilidad_palabra": 0.5,
+  "activar_con_aplausos": true,
+  "aplausos": {
+    "cantidad": 2,
+    "sensibilidad": 1.0,
+    "separacion_minima_seg": 0.12,
+    "separacion_maxima_seg": 0.9
+  },
+  "modo_conversacion": true,
+  "segundos_espera_conversacion": 6,
+  "segundos_maximos_frase": 12,
+  "ciudad_clima": "Buenos Aires",
+  "modelo_ia": "claude-opus-5-5",
+  "esfuerzo_ia": "low",
+  "programas": {
+    "chrome": "chrome",
+    "navegador": "chrome",
+    "spotify": "spotify:",
+    "bloc de notas": "notepad",
+    "calculadora": "calc",
+    "explorador": "explorer",
+    "archivos": "explorer",
+    "word": "winword",
+    "excel": "excel",
+    "configuracion": "ms-settings:"
+  },
+  "paginas": {
+    "youtube": "https://www.youtube.com",
+    "google": "https://www.google.com",
+    "whatsapp": "https://web.whatsapp.com",
+    "gmail": "https://mail.google.com",
+    "netflix": "https://www.netflix.com"
+  }
+}

@@ -1,0 +1,85 @@
+===============================================================
+                 JARVIS 2.0 - Asistente por voz
+===============================================================
+
+INSTALACIÓN (una sola vez)
+---------------------------------------------------------------
+1. Instalá Python 3.12 desde https://www.python.org/downloads/
+   IMPORTANTE: en el instalador marcá la casilla "Add Python to PATH".
+2. Descomprimí esta carpeta donde quieras (por ejemplo en Documentos).
+3. Hacé doble clic en INSTALAR.bat y esperá a que termine.
+4. Se abre el archivo .env en el Bloc de notas: pegá tu clave de la IA
+   después de ANTHROPIC_API_KEY=  y guardá.
+   (La clave se saca en https://platform.claude.com/ -> API Keys.
+    Sin clave Jarvis igual hace los comandos, pero no charla.)
+
+USO
+---------------------------------------------------------------
+- Doble clic en INICIAR_JARVIS.bat
+- Para llamarlo:  decí "Hey Jarvis"   o   aplaudí 2 veces seguidas.
+- Después de responder te sigue escuchando unos segundos, así podés
+  seguir la charla sin volver a llamarlo. Decí "gracias" o "listo"
+  para terminar, o "apagate" para cerrarlo.
+
+QUÉ PODÉS PEDIRLE
+---------------------------------------------------------------
+- "¿Qué hora es?" / "¿Qué día es hoy?"
+- "¿Cómo está el clima?"  (la ciudad se cambia en config.json)
+- "Abrí Spotify" / "Abrí YouTube" / "Abrí la calculadora"
+- "Poné música de Soda Stereo"  (la busca en YouTube)
+- "Buscá recetas de pizza"  (la busca en Google)
+- "Subí el volumen" / "Bajá el volumen" / "Silencio"
+- "Pausá la música" / "Siguiente canción"
+- "Recordame en 10 minutos que saque la pizza"
+- "Recordá que mi equipo es Boca"  (lo recuerda para siempre)
+- "¿Qué te acordás de mí?" / "Olvidate todo"
+- Cualquier otra pregunta o charla la responde la IA.
+
+SI NO TE ESCUCHA O SUENA MAL
+---------------------------------------------------------------
+1. Abrí PROBAR_MICROFONO.bat: te muestra la lista de micrófonos y
+   parlantes, una barra con el nivel del micrófono, y te avisa cuando
+   detecta los aplausos o "Hey Jarvis".
+2. Si la barra no se mueve cuando hablás, es el micrófono equivocado:
+   copiá parte de su nombre en config.json, en "microfono".
+   Ejemplo:  "microfono": "Realtek",
+3. VOZ GANGOSA: casi siempre es por usar audífonos Bluetooth con su
+   propio micrófono (modo "Manos libres" / "Hands-Free"), que baja la
+   calidad del sonido. Usá el micrófono de la PC o uno con cable, y en
+   "parlante" poné el nombre de tus audífonos (el que NO dice
+   "Hands-Free").
+4. Los aplausos no lo activan: subí "sensibilidad" dentro de
+   "aplausos" en config.json (por ejemplo 1.5). Si se activa solo,
+   bajala (por ejemplo 0.7).
+5. "Hey Jarvis" no lo activa: bajá "sensibilidad_palabra" (por
+   ejemplo 0.35). Si se activa solo, subila (por ejemplo 0.65).
+6. Si algo falla, mirá el archivo logs\jarvis.log: ahí queda anotado
+   cada error.
+
+CONFIGURACIÓN (config.json, se abre con el Bloc de notas)
+---------------------------------------------------------------
+- "como_llamarte": cómo te dice Jarvis ("señor", tu nombre...).
+- "voz": otras voces: es-AR-ElenaNeural (mujer argentina),
+  es-MX-JorgeNeural, es-ES-AlvaroNeural.
+- "velocidad_voz": "+5%" más rápido, "-10%" más lento.
+- "programas" y "paginas": agregá los tuyos con el mismo formato.
+- "modo_conversacion": false para que responda una sola vez.
+- "activar_con_aplausos" / "activar_con_palabra": true o false.
+- "esfuerzo_ia": "low" responde más rápido; "medium" piensa más.
+
+QUÉ SE MEJORÓ RESPECTO DEL JARVIS ANTERIOR
+---------------------------------------------------------------
+- Palabra de activación "Hey Jarvis" que corre en tu PC: responde más
+  rápido, no necesita internet para escucharte y falla mucho menos.
+- Aplausos: hacen falta 2 seguidos y el umbral se ajusta solo al ruido
+  de la habitación. La voz, la música y los golpes no lo activan.
+- Voz neural natural, decodificada a la frecuencia exacta de tu
+  parlante: sin voz gangosa ni acelerada.
+- No se escucha a sí mismo: apaga el micrófono mientras habla.
+- Si el micrófono se desconecta, se reconecta solo.
+- Empieza a hablar con la primera frase, sin esperar la respuesta
+  completa.
+- Avisa en voz alta si no hay internet, si la clave no sirve o si se
+  terminaron los créditos, en vez de quedarse callado.
+- Memoria de la charla y memoria permanente.
+- Todos los errores quedan anotados en logs\jarvis.log.
